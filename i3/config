@@ -235,7 +235,7 @@ set $crust		#11111b
 
 # Windows colors
 #							title		background	text	indicator	border
-client.focused				$mauve		$mauve		$base	$mauve		$mauve
+client.focused				$blue		$blue		$base	$blue		$blue
 client.focused_inactive		$surface0	$surface0	$text	$surface0	$surface0
 client.unfocused			$surface0	$surface0	$text	$surface0	$surface0
 client.urgent				$red		$red		$base	$red		$red
@@ -254,7 +254,7 @@ bar {
 		separator	$text
 
 #							border	background	text
-		focused_workspace	$crust	$surface0	$text
+		focused_workspace	$crust	$blue		$base
 		active_workspace	$crust	$base		$text
 		inactive_workspace	$crust	$crust		$text
 		urgent_workspace	$red	$red		$base
