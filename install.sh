@@ -7,7 +7,9 @@ ln -sf "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
 
 #fish
 mkdir -p "$HOME/.config/fish"
+mkdir -p "$HOME/.config/fish/completions"
 ln -sf "$HOME/dotfiles/fish/config.fish" "$HOME/.config/fish/config.fish"
+ln -s "$HOME/.asdf/completions/asdf.fish" "$HOME/.config/fish/completions/asdf.fish"
 
 # gtk
 mkdir -p "$HOME/.config/gtk-3.0"
