@@ -5,6 +5,10 @@ set -euo pipefail
 rm -rf "$HOME/.config/alacritty"
 ln -sf "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
 
+#bat
+rm -rf "$HOME/.config/bat"
+ln -sf "$HOME/dotfiles/bat" "$HOME/.config/bat"
+
 #fish
 mkdir -p "$HOME/.config/fish"
 mkdir -p "$HOME/.config/fish/completions"
