@@ -205,6 +205,9 @@ bindsym $mod+r mode "resize"
 # Wallpaper
 exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/wallpapers/dracula_van_helsing_1920x1080.png 
 
+# Default border style for new windows
+default_border normal 3
+
 # Colors
 set $rosewater	#f5e0dc
 set $flamingo	#f2cdcd
