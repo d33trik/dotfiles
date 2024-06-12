@@ -5,3 +5,5 @@ set -gx VISUAL nvim
 set -g fish_key_bindings fish_vi_key_bindings
 
 source ~/.asdf/asdf.fish
+
+fish_config theme choose "Catppuccin Mocha"

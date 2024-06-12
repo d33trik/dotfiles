@@ -8,8 +8,10 @@ ln -sf "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
 #fish
 mkdir -p "$HOME/.config/fish"
 mkdir -p "$HOME/.config/fish/completions"
+rm -rf "$HOME/.config/fish/themes"
 ln -sf "$HOME/dotfiles/fish/config.fish" "$HOME/.config/fish/config.fish"
-ln -s "$HOME/.asdf/completions/asdf.fish" "$HOME/.config/fish/completions/asdf.fish"
+ln -sf "$HOME/.asdf/completions/asdf.fish" "$HOME/.config/fish/completions/asdf.fish"
+ln -sf "$HOME/dotfiles/fish/themes" "$HOME/.config/fish/themes"
 
 # gtk
 mkdir -p "$HOME/.config/gtk-3.0"
