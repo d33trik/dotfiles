@@ -2,40 +2,28 @@
 set -euo pipefail
 
 # alacritty
-rm -rf "$HOME/.config/alacritty"
-ln -sf "$HOME/dotfiles/alacritty" "$HOME/.config/alacritty"
+rm -rf "$XDG_CONFIG_HOME/alacritty"
+ln -sf "$DOTFILES/alacritty" "$XDG_CONFIG_HOME/alacritty"
 
 #bat
-rm -rf "$HOME/.config/bat"
-ln -sf "$HOME/dotfiles/bat" "$HOME/.config/bat"
+rm -rf "$XDG_CONFIG_HOME/bat"
+ln -sf "$DOTFILES/bat" "$XDG_CONFIG_HOME/bat"
 
 #fish
-mkdir -p "$HOME/.config/fish"
-mkdir -p "$HOME/.config/fish/completions"
-rm -rf "$HOME/.config/fish/themes"
-ln -sf "$HOME/dotfiles/fish/config.fish" "$HOME/.config/fish/config.fish"
-ln -sf "$HOME/.asdf/completions/asdf.fish" "$HOME/.config/fish/completions/asdf.fish"
-ln -sf "$HOME/dotfiles/fish/themes" "$HOME/.config/fish/themes"
-
-# gtk
-mkdir -p "$HOME/.config/gtk-3.0"
-ln -sf "$HOME/dotfiles/gtk/gtk-2/gtkrc-2.0" "$HOME/.gtkrc-2.0"
-ln -sf "$HOME/dotfiles/gtk/gtk-3/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
+mkdir -p "$XDG_CONFIG_HOME/fish/completions"
+rm -rf "$XDG_CONFIG_HOME/fish/themes"
+ln -sf "$DOTFILES/fish/config.fish" "$XDG_CONFIG_HOME/fish/config.fish"
+ln -sf "$HOME/.asdf/completions/asdf.fish" "$XDG_CONFIG_HOME/fish/completions/asdf.fish"
+ln -sf "$DOTFILES/fish/themes" "$XDG_CONFIG_HOME/fish/themes"
 
 # i3
-rm -rf "$HOME/.config/i3"
-ln -sf "$HOME/dotfiles/i3" "$HOME/.config/i3"
-
-#icons
-mkdir -p "$HOME/.icons/default"
-mkdir -p "$HOME/.local/share/icons/default"
-ln -sf "$HOME/dotfiles/icons/index/index.theme" "$HOME/.icons/default/index.theme"
-ln -sf "$HOME/dotfiles/icons/index/index.theme" "$HOME/.local/share/icons/default/index.theme"
+rm -rf "$XDG_CONFIG_HOME/i3"
+ln -sf "$DOTFILES/i3" "$XDG_CONFIG_HOME/i3"
 
 # neovim
-rm -rf "$HOME/.config/nvim"
-ln -sf "$HOME/dotfiles/neovim" "$HOME/.config/nvim"
+rm -rf "$XDG_CONFIG_HOME/nvim"
+ln -sf "$DOTFILES/neovim" "$XDG_CONFIG_HOME/nvim"
 
 # X11
-ln -sf "$HOME/dotfiles/X11/xinitrc" "$HOME/.xinitrc"
-ln -sf "$HOME/dotfiles/X11/Xresources" "$HOME/.Xresources"
+ln -sf "$DOTFILES/X11/xinitrc" "$HOME/.xinitrc"
+ln -sf "$DOTFILES/X11/Xresources" "$HOME/.Xresources"
