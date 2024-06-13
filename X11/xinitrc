@@ -1,2 +1,6 @@
-xrdb -merge ~/.Xresources
-exec i3
+# Remap the Caps Lock key with the CTRL key when pressed with another key
+setxkbmap -option 'caps:ctrl_modifier'
+
+# Remap the Caps Lock key with the ESC key when presses alone
+xcape -e 'Caps_Lock=Escape'
+
