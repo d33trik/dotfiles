@@ -1,0 +1,45 @@
+[global]
+font = "SauceCodePro Nerd Font 12"
+icon_position = "left"
+markup = "full"
+format = "<b>%s</b>\n%b"
+sort = "true"
+indicate_hidden = "true"
+alignment = "left"
+show_age_threshold = 60
+word_wrap = "true"
+ignore_newline = "false"
+stack_duplicates = "true"
+width = 300
+height = 300
+offset = "0x0"
+transparency = 0
+idle_threshold = 0
+monitor = 0
+follow = "keyboard"
+sticky_history = "true"
+line_height = 0
+separator_height = 2
+padding = 8
+horizontal_padding = 8
+dmenu = "/usr/bin/dmenu -p dunst"
+browser = "/usr/bin/firefox -new-tab"
+frame_width = 1
+frame_color = "#CBA6F7"
+separator_color= "frame"
+
+[urgency_low]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+timeout = 10
+
+[urgency_normal]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+timeout = 15
+
+[urgency_critical]
+background = "#1E1E2E"
+foreground = "#F38BA8"
+frame_color = "#F38BA8"
+timeout = 30

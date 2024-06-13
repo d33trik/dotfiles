@@ -13,13 +13,13 @@ y = 10
 size = 12.0
 
 [font.normal]
-family = "Dank Mono"
+family = "DankMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "Dank Mono"
+family = "DankMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "Dank Mono"
+family = "DankMono Nerd Font"
 style = "Italic"

@@ -9,6 +9,10 @@ ln -sf "$DOTFILES/alacritty" "$XDG_CONFIG_HOME/alacritty"
 rm -rf "$XDG_CONFIG_HOME/bat"
 ln -sf "$DOTFILES/bat" "$XDG_CONFIG_HOME/bat"
 
+# dunst
+rm -rf "$XDG_CONFIG_HOME/dunst"
+ln -sf "$DOTFILES/dunst" "$XDG_CONFIG_HOME/dunst"
+
 #fish
 mkdir -p "$XDG_CONFIG_HOME/fish/completions"
 rm -rf "$XDG_CONFIG_HOME/fish/themes"
