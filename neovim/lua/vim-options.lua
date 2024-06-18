@@ -28,6 +28,18 @@ vim.opt.softtabstop = 4
 -- Number of spaces to use for each step of (auto)indent
 vim.opt.shiftwidth = 4
 
+-- Enable persistent undo, allowing undo history to be saved across sessions
+vim.opt.undofile = true
+
+-- Set the directory where undo files will be stored
+vim.opt.undodir = vim.fn.expand("$XDG_DATA_HOME/nvim/undo")
+
+-- Increase the maximum number of undo levels
+vim.opt.undolevels = 10000
+
+-- Increase the maximum number of lines to save for undo when reloading a buffer
+vim.opt.undoreload = 10000
+
 -- Render whitespace characters
 vim.opt.list = true
 vim.opt.listchars = {

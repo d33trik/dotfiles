@@ -4,3 +4,5 @@ setxkbmap -option 'caps:ctrl_modifier'
 # Remap the Caps Lock key with the ESC key when presses alone
 xcape -e 'Caps_Lock=Escape'
 
+xrdb -merge ~/.config/X11/.Xresources
+exec i3
