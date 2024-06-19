@@ -1,3 +1,6 @@
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+
 # Remap the Caps Lock key with the CTRL key when pressed with another key
 setxkbmap -option 'caps:ctrl_modifier'
 

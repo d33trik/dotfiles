@@ -37,10 +37,10 @@ exec --no-startup-id udiskie
 exec --no-startup-id dunst
 
 # Close all notifications dunst
-bindsym $mod+x exec dunstctl close-all
+bindsym $mod+n exec dunstctl close-all
 
 # Re-open closed dunst notifications
-bindsym Ctrl+BackSpace exec dunstctl history-pop
+bindsym $mod+Shift+n exec dunstctl history-pop
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -57,7 +57,7 @@ tiling_drag modifier titlebar
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec alacritty
 
 # Kill focused window
 bindsym $mod+Shift+q kill
