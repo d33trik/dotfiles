@@ -37,7 +37,7 @@ execute_action() {
 			echo "Applying settings..."
 			;;
 		"Install packages")
-			echo "Installing packages..."
+			bash "${DOTFILES_DIR}/.internal/install_packages.sh"
 			;;
 		"Exit")
 			exit 0
