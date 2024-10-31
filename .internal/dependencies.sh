@@ -15,6 +15,8 @@ check_dependencies() {
 			echo "Installing ${missing_dep}..."
 			install_"$missing_dep"
 		done
+
+		clear
 	fi
 }
 
