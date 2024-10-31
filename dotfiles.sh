@@ -14,6 +14,7 @@ main() {
 
 	check_dependencies
 	display_menu
+	execute_action
 }
 
 display_menu() {
@@ -28,6 +29,20 @@ display_menu() {
 		gum choose \
 			--header="Dotfiles!"
 	)
+}
+
+execute_action() {
+	case "$action" in
+		"Apply settings")
+			echo "Applying settings..."
+			;;
+		"Install packages")
+			echo "Installing packages..."
+			;;
+		"Exit")
+			exit 0
+			;;
+	esac
 }
 
 main "$@"
