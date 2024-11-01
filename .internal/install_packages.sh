@@ -5,6 +5,7 @@
 # o pipefail - script fails if command piped fails
 set -euo pipefail
 
+source "${DOTFILES_DIR}/.internal/fmt.sh"
 source "${DOTFILES_DIR}/.internal/utils.sh"
 
 main() {
@@ -18,22 +19,22 @@ main() {
 
 check_packages_dir(){
 	if [ ! -d "$PACKAGES_DIR" ]; then
-		echo "Directory $PACKAGES_DIR does not exist"
+		echo_err "✗ Directory ${PACKAGES_DIR} does not exist"
 		exit 1
 	fi
 
 	if [ -z "$(ls -A "$PACKAGES_DIR")" ]; then
-		echo "Directory $PACKAGES_DIR is empty"
+		echo_err "✗ Directory ${PACKAGES_DIR} is empty"
 		exit 1
 	fi
 }
 
 request_sudo_privileges() {
 	if ! sudo -n true 2>/dev/null; then
-		echo "Requesting sudo privileges..."
+		echo_text "Requesting sudo privileges..."
 		tput sc
 		if ! sudo -v; then
-			echo "Failed to obtain sudo privileges"
+			echo_err "✗ Failed to obtain sudo privileges"
 			exit 1
 		fi
 		tput rc && tput ed
@@ -47,15 +48,15 @@ request_sudo_privileges() {
 }
 
 synchronize_package_databases() {
-	echo "Synchronizing package databases..."
+	echo_text "Synchronizing package databases..."
 	if ! run_cmd "sudo pacman -Sy"; then
-		echo "Failed to synchronize package databases"
+		echo_err "✗ Failed to synchronize package databases"
 		exit 1
 	fi
 }
 
 install_packages() {
-	echo "Installing packages..."
+	echo_text "Installing packages..."
 	for package_dir in "${PACKAGES_DIR}"/*/; do
 		local package=$(basename "$package_dir")
 
@@ -72,12 +73,12 @@ check_package() {
 	local package=$2
 
 	if [[ ! -f "${package_dir}check.sh" ]]; then
-		echo "Check script not found for package $package"
+		echo_err "✗ Check script not found for package $package"
 		exit 1
 	fi
 	
 	if run_cmd "bash ${package_dir}check.sh"; then
-		echo "${package} [already installed]"
+		echo_muted "✓ ${package} [already installed]"
 		return 0
 	fi
 
@@ -88,20 +89,20 @@ install_package() {
 	local package_dir=$1
 	local package=$2
 
-	echo "Installing ${package}..."
+	echo_info "Installing ${package}..."
 
 	if [[ ! -f "${package_dir}install.sh" ]]; then
-		echo "Install script not found for package $package"
+		echo_err "✗ Install script not found for package $package"
 		exit 1
 	fi
 
 	if ! run_cmd "bash ${package_dir}install.sh"; then
-		echo "Failed to install ${package}"
+		echo_err "✗ Failed to install ${package}"
 		exit 1
 	fi
 
 	clear_line
-	echo "${package} [installed]"
+	echo_success "✓ ${package} [installed]"
 }
 
 main "$@"
