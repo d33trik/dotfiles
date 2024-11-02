@@ -1,0 +1,3 @@
+set -euo pipefail
+
+sudo pacman -S --noconfirm --needed ttf-dejavu ttf-sourcecodepro-nerd
