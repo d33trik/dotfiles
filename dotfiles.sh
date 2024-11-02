@@ -8,6 +8,7 @@ set -euo pipefail
 export DOTFILES_DIR="$(dirname "$(readlink -f "$0")")"
 
 source "${DOTFILES_DIR}/.internal/dependencies.sh"
+source "${DOTFILES_DIR}/.internal/gum_style.sh"
 
 main() {
 	local action
