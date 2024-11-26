@@ -4,7 +4,8 @@ apps = [
 	"beekeeper-studio-bin",
 	"firefox",
 	"gimp",
-	"klavaro"
+	"klavaro",
+	"obsidian"
 ]
 bluetooth = [
 	"bluez",
