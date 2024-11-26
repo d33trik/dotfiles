@@ -11,7 +11,8 @@ bluetooth = [
 	"bluez-utils"
 ]
 command-line = [
-	"git"
+	"git",
+	"neovim"
 ]
 file-system-tools = [
 	"dosfstools",
