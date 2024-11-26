@@ -21,4 +21,13 @@ fonts = [
 	"ttf-dejavu",
 	"ttf-sourcecodepro-nerd"
 ]
-
+i3 = [
+	"xorg",
+	"xorg-xinit",
+	"xsettingsd",
+	"i3-wm",
+	"i3status",
+	"i3lock",
+	"dmenu",
+	"arandr",
+]
