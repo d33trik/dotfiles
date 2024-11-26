@@ -2,7 +2,8 @@
 apps = [
 	"alacritty",
 	"beekeeper-studio-bin",
-	"firefox"
+	"firefox",
+	"gimp"
 ]
 bluetooth = [
 	"bluez",
