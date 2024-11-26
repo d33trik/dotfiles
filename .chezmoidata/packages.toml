@@ -9,6 +9,9 @@ bluetooth = [
 	"bluez",
 	"bluez-utils"
 ]
+command-line = [
+	"git"
+]
 file-system-tools = [
 	"dosfstools",
 	"exfatprogs",
