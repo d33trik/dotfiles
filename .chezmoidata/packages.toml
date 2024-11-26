@@ -12,7 +12,8 @@ bluetooth = [
 ]
 command-line = [
 	"git",
-	"neovim"
+	"neovim",
+	"xclip"
 ]
 file-system-tools = [
 	"dosfstools",
