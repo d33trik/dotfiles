@@ -13,4 +13,8 @@ file-system-tools = [
 	"exfatprogs",
 	"ntfs-3g"
 ]
+fonts = [
+	"ttf-dejavu",
+	"ttf-sourcecodepro-nerd"
+]
 
