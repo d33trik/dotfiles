@@ -3,7 +3,8 @@ apps = [
 	"alacritty",
 	"beekeeper-studio-bin",
 	"firefox",
-	"gimp"
+	"gimp",
+	"klavaro"
 ]
 bluetooth = [
 	"bluez",
