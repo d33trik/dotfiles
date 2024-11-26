@@ -7,4 +7,9 @@ bluetooth = [
 	"bluez",
 	"bluez-utils"
 ]
+file-system-tools = [
+	"dosfstools",
+	"exfatprogs",
+	"ntfs-3g"
+]
 
