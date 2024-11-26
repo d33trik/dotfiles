@@ -35,6 +35,10 @@ i3 = [
 	"dmenu",
 	"arandr",
 ]
+podman = [
+	"podman",
+	"podman-compose"
+]
 virtualization = [
 	"qemu-full",
 	"libvirt",
