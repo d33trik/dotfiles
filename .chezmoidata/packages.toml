@@ -3,4 +3,8 @@ apps = [
 	"alacritty",
 	"beekeeper-studio-bin"
 ]
+bluetooth = [
+	"bluez",
+	"bluez-utils"
+]
 
