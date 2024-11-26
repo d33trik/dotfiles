@@ -1,7 +1,8 @@
 [packages]
 apps = [
 	"alacritty",
-	"beekeeper-studio-bin"
+	"beekeeper-studio-bin",
+	"firefox"
 ]
 bluetooth = [
 	"bluez",
