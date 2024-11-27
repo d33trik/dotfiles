@@ -1,0 +1,23 @@
+[general]
+import = [
+	"~/.config/alacritty/themes/tokyonight/moon.toml"
+]
+
+[window.padding]
+x = 5
+y = 5
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "DankMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "DankMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "DankMono Nerd Font"
+style = "Italic"
