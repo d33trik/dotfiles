@@ -23,6 +23,7 @@ command-line = [
 	"openssh",
 	"poppler",
 	"udiskie",
+	"unzip",
 	"xclip"
 ]
 file-system-tools = [
