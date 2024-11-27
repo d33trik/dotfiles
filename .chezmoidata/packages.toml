@@ -3,6 +3,7 @@ apps = [
 	"alacritty",
 	"beekeeper-studio-bin",
 	"firefox",
+	"flameshot",
 	"gimp",
 	"klavaro",
 	"obsidian"
