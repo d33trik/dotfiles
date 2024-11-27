@@ -65,3 +65,10 @@ virtualization = [
 	"dmidecode",
 	"edk2-ovmf"
 ]
+zathura = [
+	"zathura",
+	"zathura-cb",
+	"zathura-djvu",
+	"zathura-pdf-mupdf",
+	"zathura-ps"
+]
