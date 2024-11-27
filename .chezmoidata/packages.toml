@@ -16,6 +16,8 @@ command-line = [
 	"git",
 	"gum",
 	"htop",
+	"man",
+	"man-pages",
 	"neovim",
 	"xclip"
 ]
