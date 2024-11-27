@@ -39,6 +39,12 @@ podman = [
 	"podman",
 	"podman-compose"
 ]
+themes = [
+	"arc-gtk-theme",
+	"arc-icon-theme",
+	"rose-pine-cursor",
+	"nwg-look"
+]
 virtualization = [
 	"qemu-full",
 	"libvirt",
