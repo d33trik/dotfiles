@@ -24,7 +24,8 @@ command-line = [
 	"poppler",
 	"udiskie",
 	"unzip",
-	"xclip"
+	"xclip",
+	"zip"
 ]
 file-system-tools = [
 	"dosfstools",
