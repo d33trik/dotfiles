@@ -20,6 +20,7 @@ command-line = [
 	"man-pages",
 	"neofetch",
 	"neovim",
+	"openssh",
 	"xclip"
 ]
 file-system-tools = [
