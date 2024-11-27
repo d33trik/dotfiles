@@ -22,6 +22,7 @@ command-line = [
 	"neovim",
 	"openssh",
 	"poppler",
+	"udiskie",
 	"xclip"
 ]
 file-system-tools = [
