@@ -24,6 +24,7 @@ command-line = [
 	"neovim",
 	"openssh",
 	"poppler",
+	"ripgrep",
 	"udiskie",
 	"unzip",
 	"xclip",
