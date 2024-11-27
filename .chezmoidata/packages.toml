@@ -13,6 +13,7 @@ bluetooth = [
 	"bluez-utils"
 ]
 command-line = [
+	"fish",
 	"git",
 	"gum",
 	"htop",
