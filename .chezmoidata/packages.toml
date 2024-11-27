@@ -15,6 +15,7 @@ bluetooth = [
 command-line = [
 	"git",
 	"gum",
+	"htop",
 	"neovim",
 	"xclip"
 ]
