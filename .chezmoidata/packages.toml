@@ -18,6 +18,7 @@ command-line = [
 	"htop",
 	"man",
 	"man-pages",
+	"neofetch",
 	"neovim",
 	"xclip"
 ]
