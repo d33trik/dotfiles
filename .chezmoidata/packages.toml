@@ -21,6 +21,7 @@ command-line = [
 	"neofetch",
 	"neovim",
 	"openssh",
+	"poppler",
 	"xclip"
 ]
 file-system-tools = [
