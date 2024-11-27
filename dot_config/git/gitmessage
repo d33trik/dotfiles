@@ -1,0 +1,43 @@
+
+# <type>(<scope>): <description>
+#
+# <body>
+#
+# <footer>
+#
+# Type:
+# build:    Changes to build system, dependencies, or project tooling
+# chore:    Routine maintenance tasks (git hooks, .gitignore, etc.)
+# ci:       Changes to CI configuration and scripts
+# docs:     Documentation changes only
+# feat:     New features or significant functionality additions
+# fix:      Bug fixes and error corrections
+# perf:     Performance improvements
+# refactor: Code improvements
+# revert:   Reverting a previous commit
+# style:    Code style changes (formatting, missing semicolons, etc.)
+# test:     Add or refactor tests
+#
+# Scope (optional):
+# - A noun describing the scope of the commit change
+# - Example: feat(parser): add ability to parse arrays
+#
+# Description:
+# - A short summary of code changes in imperative mode
+# - Limit to 50 characters
+#
+# Body (optional):
+# - Provide additional information about the code changes
+# - Explain *what* and *why* (not *how*)
+# - Wrap at 72 characters
+# - Use dashes (-) for bullet points
+# - Can use multiple paragraphs
+#
+# Footer (optional):
+# - BREAKING CHANGE: <description>
+# - Close/Fixe/Resolve: #<issue-number>
+# - Reviewed-by: Bob <bob@example.com>
+#
+# Breaking Changes:
+# - Indicated by a ! after the type/scope and immediately before the `:`
+# - Included as a footer
