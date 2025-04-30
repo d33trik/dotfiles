@@ -11,6 +11,7 @@ main() {
 	synchronize_package_databases
 	install_yay
 	install_packages
+	run_config_scripts
 }
 
 synchronize_package_databases() {
@@ -37,6 +38,16 @@ install_packages() {
 
 		# Install package
 		yay -S --noconfirm --needed "$package"
+	done
+}
+
+run_config_scripts() {
+	local config_dir="$DOTFILES_DIR/packages/config"
+
+	for config in "$config_dir"/*.sh; do
+		if [ -f "$config" ]; then
+			bash "$config"
+		fi
 	done
 }
 
