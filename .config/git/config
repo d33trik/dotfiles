@@ -1,0 +1,11 @@
+[user]
+	name = "Claudio Dietrich"
+	email = "claudio@dietrich.dev.br"
+[init]
+	defaultBranch = trunk
+[core]
+	editor = nvim
+[merge]
+	ff = only
+[pull]
+	rebase = true
