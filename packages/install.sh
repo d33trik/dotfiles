@@ -6,8 +6,11 @@
 set -euo pipefail
 
 main() {
+	local DOTFILES_DIR="$HOME/dotfiles"
+
 	synchronize_package_databases
 	install_yay
+	install_packages
 }
 
 synchronize_package_databases() {
@@ -23,6 +26,18 @@ install_yay() {
 		makepkg --noconfirm -si
 		sudo pacman -Rs --noconfirm go
 	fi
+}
+
+install_packages() {
+	local packages="$DOTFILES_DIR/packages/packages.yaml"
+
+	awk '/^ *- / {print $2}' "$packages" | while IFS= read -r package; do
+		# Skip empty lines and comments
+		[[ -z "$package" || "$package" == \#* ]] && continue
+
+		# Install package
+		yay -S --noconfirm --needed "$package"
+	done
 }
 
 main "$@"
