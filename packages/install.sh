@@ -12,6 +12,7 @@ main() {
 	install_yay
 	install_packages
 	run_config_scripts
+	apply_dotfiles
 }
 
 synchronize_package_databases() {
@@ -49,6 +50,11 @@ run_config_scripts() {
 			bash "$config"
 		fi
 	done
+}
+
+apply_dotfiles() {
+	cd "$DOTFILES_DIR"
+	stow .
 }
 
 main "$@"
