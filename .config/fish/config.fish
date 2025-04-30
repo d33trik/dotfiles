@@ -19,3 +19,11 @@ fish_config theme choose "tokyonight-moon"
 
 # Go
 fish_add_path $HOME/go/bin
+
+# Starship
+set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
+function starship_transient_prompt_func
+	starship module character
+end
+starship init fish | source
+enable_transience

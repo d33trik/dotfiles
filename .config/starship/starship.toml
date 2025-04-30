@@ -1,0 +1,51 @@
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$line_break\
+$character
+"""
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = '#82aaff'
+read_only_style = '#ff757f'
+home_symbol = '~'
+read_only = ' 󰉐'
+truncation_length = 0
+truncate_to_repo = false
+fish_style_pwd_dir_length = 0
+
+[git_branch]
+format = '[$branch]($style)'
+style = '#828bb8'
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = '#828bb8'
+
+[git_status]
+format = '[[(*$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)'
+style = '#828bb8'
+conflicted = '​'
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇡⇣'
+up_to_date = '​'
+untracked = '​'
+stashed = '≡'
+modified = '​'
+staged = '​'
+renamed = '​'
+deleted = '​'
+typechanged = '​'
+
+[character]
+format = '$symbol '
+success_symbol = "[❯](#c3e88d)"
+error_symbol = "[❯](#c3e88d)"
+vimcmd_symbol = "[❯](#82aaff)"
+vimcmd_visual_symbol = "[❯](#c099ff)"
+vimcmd_replace_symbol = "[❯](#ff757f)"
+vimcmd_replace_one_symbol = "[❯](#ff757f)"
