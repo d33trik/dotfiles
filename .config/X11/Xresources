@@ -1,0 +1,7 @@
+!#####################
+! Cursor Configuration
+!#####################
+
+! Set the X cursor size
+! This affects the size of mouse cursors throughout X applications
+Xcursor.size: 28
