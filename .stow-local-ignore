@@ -9,3 +9,4 @@
 
 # Other non-stowable resources
 ^packages$
+^scripts$
