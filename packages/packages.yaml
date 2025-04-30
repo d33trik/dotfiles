@@ -1,0 +1,97 @@
+System:
+  Audio:
+    PulseAudio:
+      - pulseaudio
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+      - pulseaudio-jack
+      - pavucontrol
+  Appearance:
+    - arc-gtk-theme
+    - arc-icon-theme
+    - rose-pine-cursor
+    - nwg-look
+  Connectivity:
+    Bluetooth:
+      - bluez
+      - bluez-utils
+    Network:
+      - openssh
+  Filesystems:
+    - dosfstools
+    - exfatprogs
+    - ntfs-3g
+  Fonts:
+    - noto-fonts-emoji
+    - ttf-dejavu
+    - ttf-sourcecodepro-nerd
+  Graphical Environments:
+    i3wm:
+      - xorg
+      - xorg-xinit
+      - xsettingsd
+      - i3-wm
+      - i3status
+      - i3lock
+      - dmenu
+      - arandr
+      - dunst
+      - libnotify
+  Terminal Applications:
+    - alacritty
+    - fish
+    - starship
+    - tmux
+
+Applications:
+  CLI:
+    - gum
+    - htop
+    - man
+    - man-pages
+    - neofetch
+    - poppler
+    - stow
+    - udiskie
+    - unzip
+    - zathura
+    - zip
+  GUI:
+    - brave-bin
+    - chromium
+    - flameshot
+    - gimp
+    - klavaro
+    - thunar
+
+Development:
+  Go:
+    - go
+  Neovim:
+    - neovim
+    - curl
+    - fd
+    - fzf
+    - gcc
+    - git
+    - luarocks
+    - make
+    - ripgrep
+    - unzip
+    - xclip
+  Podman:
+    - podman
+    - podman-compose
+  Tools:
+    - beekeeper-studio-bin
+    - git
+
+Virtualization:
+  Virt Manager:
+    - qemu-full
+    - libvirt
+    - virt-manager
+    - iptables-nft
+    - dnsmasq
+    - dmidecode
+    - edk2-ovmf
