@@ -57,7 +57,6 @@ Applications:
     - zathura
     - zip
   GUI:
-    - brave-bin
     - chromium
     - firefox
     - flameshot
