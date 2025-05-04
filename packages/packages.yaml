@@ -59,6 +59,7 @@ Applications:
   GUI:
     - brave-bin
     - chromium
+    - firefox
     - flameshot
     - gimp
     - klavaro
