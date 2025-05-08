@@ -7,9 +7,9 @@ set -euo pipefail
 
 dest="/run/media/$(whoami)/backup/backup.tar.gz"
 backup_files=(
-	".config/BraveSoftware/Brave-Browser"
 	".config/chromium"
 	".local/share/fonts/dank-mono"
+	".mozilla/firefox/profiles"
 	".ssh"
 )
 
