@@ -10,6 +10,9 @@ vim.g.colorscheme = "tokyonight-moon"
 -- Set spell check languages to English and Brazilian Portuguese
 vim.opt.spelllang = { "en", "pt" }
 
+-- Enables mousemove events (e.g., for triggering actions when the mouse moves)
+vim.opt.mousemoveevent = true
+
 -- Enable smart wrapping indentation
 vim.opt.breakindent = true
 
