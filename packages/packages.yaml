@@ -79,6 +79,9 @@ Development:
     - ripgrep
     - unzip
     - xclip
+  Nodejs:
+    - nodejs
+    - npm
   Podman:
     - podman
     - podman-compose
