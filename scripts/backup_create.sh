@@ -11,6 +11,7 @@ backup_files=(
 	".local/share/fonts/dank-mono"
 	".mozilla/firefox/profiles"
 	".ssh"
+	"documents"
 )
 
 echo "Files to backup:"
