@@ -9,18 +9,26 @@ The installation process is automated using a script designed for Arch-based dis
 **Warning:** The installation script will install packages and modify your system configuration.
 
 1. **Clone the repository:**
+
 ```bash
 git clone https://github.com/d33trik/dotfiles.git ~/dotfiles
 ```
 
-2. **Run the installation script:**
+2. **Navigate to the repository directory:**
+
 ```bash
-bash ~/dotfiles/packages/install.sh
+cd ~/dotfiles
+```
+
+3. **Run the installation script:**
+
+```bash
+bash scripts/install_packages.sh
 ```
 
 The script will:
+
 - Synchronize `pacman` package databases.
 - Install `yay` if it's not already installed.
-- Install all the packages listed in `packages/packages.yaml`.
-- Run post-installation configuration scripts.
+- Execute all the installation scripts located in the `packages/` directory.
 - Apply the dotfiles using `stow`.

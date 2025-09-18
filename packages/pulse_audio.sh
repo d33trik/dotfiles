@@ -1,3 +1,10 @@
+yay -S --noconfirm --needed \
+	pulseaudio \
+	pulseaudio-alsa \
+	pulseaudio-bluetooth \
+	pulseaudio-jack \
+	pavucontrol
+
 sudo gpasswd -a $(whoami) audio
 sudo gpasswd -a $(whoami) lp
 

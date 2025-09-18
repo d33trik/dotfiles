@@ -11,7 +11,6 @@ main() {
 	synchronize_package_databases
 	install_yay
 	install_packages
-	run_config_scripts
 	apply_dotfiles
 }
 
@@ -31,23 +30,11 @@ install_yay() {
 }
 
 install_packages() {
-	local packages="$DOTFILES_DIR/packages/packages.yaml"
+	local packages_dir="$DOTFILES_DIR/packages"
 
-	awk '/^ *- / {print $2}' "$packages" | while IFS= read -r package; do
-		# Skip empty lines and comments
-		[[ -z "$package" || "$package" == \#* ]] && continue
-
-		# Install package
-		yay -S --noconfirm --needed "$package"
-	done
-}
-
-run_config_scripts() {
-	local config_dir="$DOTFILES_DIR/packages/config"
-
-	for config in "$config_dir"/*.sh; do
-		if [ -f "$config" ]; then
-			bash "$config"
+	for package in "$packages_dir"/*.sh; do
+		if [ -f "$package" ]; then
+			bash "$package"
 		fi
 	done
 }

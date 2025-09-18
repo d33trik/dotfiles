@@ -18,6 +18,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 fish_config theme choose tokyonight-moon
 
 # Go
+fish_add_path /usr/local/go/bin
 fish_add_path $HOME/go/bin
 
 # Npm
