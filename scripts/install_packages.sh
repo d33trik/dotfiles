@@ -34,7 +34,7 @@ install_packages() {
 
 	for package in "$packages_dir"/*.sh; do
 		if [ -f "$package" ]; then
-			bash "$package"
+			source "$package"
 		fi
 	done
 }
