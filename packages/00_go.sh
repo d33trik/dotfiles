@@ -1,3 +1,5 @@
+export PATH=$PATH:/usr/local/go/bin
+
 readonly TARGET_GO_VERSION="go1.25.1"
 
 NEEDS_INSTALL=false
