@@ -1,4 +1,4 @@
-readonly TARGET_GO_VERSION="go1.22.1"
+readonly TARGET_GO_VERSION="go1.25.1"
 
 NEEDS_INSTALL=false
 CURRENT_GO_VERSION=""
