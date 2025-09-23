@@ -14,6 +14,9 @@ return {
               parameterNames = false,
               rangeVariableTypes = false,
             },
+            analyses = {
+              ST1000 = false, -- Checks for missing or malformed Go package comments.
+            },
           },
         },
       },
