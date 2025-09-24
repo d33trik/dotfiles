@@ -24,6 +24,9 @@ fish_add_path $HOME/go/bin
 # Npm
 fish_add_path $HOME/.npm-global/bin
 
+# Podman
+set -Ux PODMAN_COMPOSE_WARNING_LOGS false
+
 # Starship
 set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 function starship_transient_prompt_func
