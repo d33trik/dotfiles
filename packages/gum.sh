@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed gum
+yay -S --noconfirm --needed --provides=false gum

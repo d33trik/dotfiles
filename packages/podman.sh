@@ -1,4 +1,4 @@
-yay -S --noconfirm --needed \
+yay -S --noconfirm --needed --provides=false \
 	podman \
 	podman-compose
 

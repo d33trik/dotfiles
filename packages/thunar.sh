@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed thunar
+yay -S --noconfirm --needed --provides=false thunar

@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed gimp
+yay -S --noconfirm --needed --provides=false gimp

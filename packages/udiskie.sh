@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed udiskie
+yay -S --noconfirm --needed --provides=false udiskie

@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed zip
+yay -S --noconfirm --needed --provides=false zip

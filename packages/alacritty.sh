@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed alacritty
+yay -S --noconfirm --needed --provides=false alacritty

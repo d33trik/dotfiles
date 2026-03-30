@@ -1,4 +1,4 @@
-yay -S --noconfirm --needed tmux
+yay -S --noconfirm --needed --provides=false tmux
 
 mkdir -p "$HOME/.tmux/plugins"
 

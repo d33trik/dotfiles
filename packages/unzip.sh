@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed unzip
+yay -S --noconfirm --needed --provides=false unzip

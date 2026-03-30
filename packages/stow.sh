@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed stow
+yay -S --noconfirm --needed --provides=false stow

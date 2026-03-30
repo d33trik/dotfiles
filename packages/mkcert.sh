@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed mkcert
+yay -S --noconfirm --needed --provides=false mkcert

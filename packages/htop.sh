@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed htop
+yay -S --noconfirm --needed --provides=false htop

@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed starship
+yay -S --noconfirm --needed --provides=false starship

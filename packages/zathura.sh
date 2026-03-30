@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed zathura
+yay -S --noconfirm --needed --provides=false zathura

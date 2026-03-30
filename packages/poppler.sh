@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed poppler
+yay -S --noconfirm --needed --provides=false poppler

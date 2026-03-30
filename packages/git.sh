@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed git
+yay -S --noconfirm --needed --provides=false git

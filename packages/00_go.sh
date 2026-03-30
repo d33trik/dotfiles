@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed go
+yay -S --noconfirm --needed --provides=false go

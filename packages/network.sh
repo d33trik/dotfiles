@@ -1,6 +1,6 @@
 bash -c "yes | yay -S --needed networkmanager iptables-nft ufw gufw"
 
-yay -S --noconfirm --needed openssh
+yay -S --noconfirm --needed --provides=false openssh
 
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable ufw.service

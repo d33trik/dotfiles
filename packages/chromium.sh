@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed chromium
+yay -S --noconfirm --needed --provides=false chromium

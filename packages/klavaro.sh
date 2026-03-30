@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed klavaro
+yay -S --noconfirm --needed --provides=false klavaro

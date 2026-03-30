@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed neofetch
+yay -S --noconfirm --needed --provides=false neofetch
