@@ -9,3 +9,5 @@
 	ff = only
 [pull]
 	rebase = true
+[includeIf "gitdir:~/work/"]
+	path = ~/.config/git/config.work
