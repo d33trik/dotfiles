@@ -11,7 +11,7 @@ The installation process is automated using a script designed for Arch-based dis
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/d33trik/dotfiles.git ~/dotfiles
+git clone https://codeberg.org/d33trik/dotfiles.git ~/dotfiles
 ```
 
 2. **Navigate to the repository directory:**

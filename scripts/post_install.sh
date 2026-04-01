@@ -13,7 +13,7 @@ main() {
 
 post_install() {
 	cd "$DOTFILES_DIR"
-	git remote set-url origin git@github.com:d33trik/dotfiles.git
+	git remote set-url origin git@codeberg.org/d33trik/dotfiles.git
 	bash scripts/install_packages.sh
 }
 
