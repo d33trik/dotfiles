@@ -8,8 +8,8 @@ set -euo pipefail
 dest="/run/media/$(whoami)/backup/backup.tar.gz"
 backup_files=(
 	".config/chromium"
+	".config/mozilla/firefox"
 	".local/share/fonts/dank-mono"
-	".mozilla/firefox/profiles"
 	".ssh"
 	"documents"
 )
