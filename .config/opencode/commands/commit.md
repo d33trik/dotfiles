@@ -13,20 +13,27 @@ If `git diff --cached` command produces no output, respond with: "No staged chan
 
 Otherwise, write a Git commit message in English following these rules:
 
-- Subject line:
-  - Use the imperative mood
-  - Capitalize the first word
-  - Do not end with a period
-  - Limit to 50 characters
+**Subject line (REQUIRED):**
 
-- Body:
-  - Omit if the change is self-explanatory
-  - Separate from subject with a blank line
-  - Wrap at 72 characters
-  - Explain _what_ and _why_, not _how_
+- Use the imperative mood (e.g., "Add feature" not "Added feature")
+- Capitalize the first word
+- Do NOT end with a period
+- MUST NOT exceed 50 characters total (including spaces)
+- Example (50 chars): `Add user auth handlers and routes`
+- Example (TOO LONG): `Add user authentication handlers and routes`
 
-- Additional constraints:
-  - Base the message only on the staged diff
-  - Do not infer or invent changes
+**Body (OPTIONAL - omit if self-explanatory):**
 
-Output only the commit message, with no additional explanation.
+- Separate from subject with one blank line
+- Each line MUST NOT exceed 72 characters
+- Wrap text manually at 72 chars - do not let lines run longer
+- Explain _what_ changed and _why_, not _how_
+
+**Verification checklist (MUST complete before outputting):**
+
+1. Subject line character count ≤ 50
+2. Body lines (if present) ≤ 72 characters each
+3. No period at end of subject
+4. First word capitalized
+
+Output ONLY the commit message with no additional explanation.
