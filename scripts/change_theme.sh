@@ -21,6 +21,7 @@ main() {
 	change_fish_theme "$theme"
 	change_i3_theme "$theme"
 	change_neovim_theme "$theme"
+	change_lualine_theme "$theme"
 }
 
 change_alacritty_theme() {
@@ -91,6 +92,22 @@ change_neovim_theme() {
 	local theme="$1"
 
 	sed -i "s|vim.g.colorscheme = \".*\"|vim.g.colorscheme = \"${theme}\"|" "$NVIM_OPTIONS"
+}
+
+change_lualine_theme() {
+	readonly NVIM_LUALINE="$HOME/dotfiles/.config/nvim/lua/plugins/lualine.lua"
+	readonly LUALINE_THEMES_DIR="$HOME/dotfiles/.config/nvim/themes/lualine"
+	local theme="$1"
+	local theme_file="$LUALINE_THEMES_DIR/${theme}"
+
+	if [[ ! -f "$theme_file" ]]; then
+		echo "Error: theme file '$theme_file' not found" >&2
+		return 1
+	fi
+
+	while IFS='=' read -r key value; do
+		sed -i "s|nvim_set_hl(0, \"${key}\", { fg = \"[^\"]*\" })|nvim_set_hl(0, \"${key}\", { fg = ${value} })|" "$NVIM_LUALINE"
+	done <"$theme_file"
 }
 
 main "$@"
