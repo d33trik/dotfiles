@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false opencode
+curl -fsSL https://opencode.ai/install | bash
