@@ -20,6 +20,7 @@ main() {
 	change_dunst_theme "$theme"
 	change_fish_theme "$theme"
 	change_i3_theme "$theme"
+	change_neovim_theme "$theme"
 }
 
 change_alacritty_theme() {
@@ -83,6 +84,13 @@ change_i3_theme() {
 	sed -i "s/color_bad=\"[^\"]*\"/$(grep 'color_bad' "$i3status_theme_file")/" "$I3STATUS_CONFIG"
 
 	i3-msg restart >/dev/null
+}
+
+change_neovim_theme() {
+	readonly NVIM_OPTIONS="$HOME/dotfiles/.config/nvim/lua/config/options.lua"
+	local theme="$1"
+
+	sed -i "s|vim.g.colorscheme = \".*\"|vim.g.colorscheme = \"${theme}\"|" "$NVIM_OPTIONS"
 }
 
 main "$@"
