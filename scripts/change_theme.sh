@@ -18,6 +18,7 @@ main() {
 
 	change_alacritty_theme "$theme"
 	change_dunst_theme "$theme"
+	change_fish_theme "$theme"
 }
 
 change_alacritty_theme() {
@@ -44,6 +45,13 @@ change_dunst_theme() {
 
 	pkill dunst || true
 	dunst &
+}
+
+change_fish_theme() {
+	readonly FISH_CONFIG="$HOME/dotfiles/.config/fish/config.fish"
+	local theme="$1"
+
+	sed -i "s|fish_config theme choose .*|fish_config theme choose ${theme}|" "$FISH_CONFIG"
 }
 
 main "$@"
