@@ -9,7 +9,7 @@ configuration {
 	pid:                     "/run/user/1000/rofi.pid";
 
 	/* --- Modes --- */
-	modes:                   "window,drun,run,ssh";
+	modes:                   "drun,run,ssh";
 	completer-mode:          "filebrowser";
 
 	/* --- Interface --- */
