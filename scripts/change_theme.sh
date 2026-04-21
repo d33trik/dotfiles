@@ -5,6 +5,9 @@
 # o pipefail - script fails if command piped fails
 set -euo pipefail
 
+readonly CONFIG_DIR="$HOME/dotfiles/.config"
+readonly THEMES_DIR="$HOME/dotfiles/themes"
+
 readonly THEMES=(
 	"tokyonight-day"
 	"tokyonight-moon"
@@ -27,23 +30,31 @@ main() {
 	change_tmux_theme "$theme"
 }
 
-change_alacritty_theme() {
-	readonly ALACRITTY_CONFIG="$HOME/dotfiles/.config/alacritty/alacritty.toml"
-	local theme="$1"
+validate_theme_file() {
+	local theme_file="$1"
 
-	sed -i "s|~/.config/alacritty/themes/[^\"]*\.toml|~/.config/alacritty/themes/${theme}.toml|g" "$ALACRITTY_CONFIG"
+	if [[ ! -f "$theme_file" ]]; then
+			echo "Error: theme file '$theme_file' not found" >&2
+			return 1
+	fi
+}
+
+change_alacritty_theme() {
+	readonly ALACRITTY_CONFIG="$CONFIG_DIR/alacritty/alacritty.toml"
+	local theme="$1"
+	local theme_file="$THEMES_DIR/${theme}/alacritty.toml"
+
+	validate_theme_file "$theme_file" || return 1
+
+	sed -i "s|\".*alacritty\.toml|\"${theme_file}|g" "$ALACRITTY_CONFIG"
 }
 
 change_dunst_theme() {
-	readonly DUNST_CONFIG="$HOME/dotfiles/.config/dunst/dunstrc"
-	readonly DUNST_THEMES_DIR="$HOME/dotfiles/.config/dunst/themes"
+	readonly DUNST_CONFIG="$CONFIG_DIR/dunst/dunstrc"
 	local theme="$1"
-	local theme_file="$DUNST_THEMES_DIR/${theme}.dunstrc"
+	local theme_file="$THEMES_DIR/${theme}/dunst"
 
-	if [[ ! -f "$theme_file" ]]; then
-		echo "Error: theme file '$theme_file' not found" >&2
-		return 1
-	fi
+	validate_theme_file "$theme_file" || return 1
 
 	sed -i '/^\[urgency_/,/^$/d' "$DUNST_CONFIG"
 
@@ -54,29 +65,25 @@ change_dunst_theme() {
 }
 
 change_fish_theme() {
-	readonly FISH_CONFIG="$HOME/dotfiles/.config/fish/config.fish"
+	readonly FISH_CONFIG="$CONFIG_DIR/fish/config.fish"
 	local theme="$1"
+	local theme_file="$THEMES_DIR/${theme}/fish.theme"
 
-	sed -i "s|fish_config theme choose .*|fish_config theme choose ${theme}|" "$FISH_CONFIG"
+	validate_theme_file "$theme_file" || return 1
+
+	cp "$theme_file" "$CONFIG_DIR/fish/themes/fish.theme"
 }
 
 change_i3_theme() {
-	readonly I3_CONFIG="$HOME/dotfiles/.config/i3/config"
-	readonly I3STATUS_CONFIG="$HOME/dotfiles/.config/i3/i3status.conf"
-	readonly I3_THEMES_DIR="$HOME/dotfiles/.config/i3/themes"
+	readonly I3_CONFIG="$CONFIG_DIR/i3/config"
+	readonly I3STATUS_CONFIG="$CONFIG_DIR/i3/i3status.conf"
 	local theme="$1"
-	local i3_theme_file="$I3_THEMES_DIR/${theme}.i3theme"
-	local i3status_theme_file="$I3_THEMES_DIR/${theme}.i3status"
+	local i3_theme_file="$THEMES_DIR/${theme}/i3"
+	local i3status_theme_file="$THEMES_DIR/${theme}/i3status"
 
-	if [[ ! -f "$i3_theme_file" ]]; then
-		echo "Error: theme file '$i3_theme_file' not found" >&2
-		return 1
-	fi
+	validate_theme_file "$i3_theme_file" || return 1
 
-	if [[ ! -f "$i3status_theme_file" ]]; then
-		echo "Error: theme file '$i3status_theme_file' not found" >&2
-		return 1
-	fi
+	validate_theme_file "$i3status_theme_file" || return 1
 
 	sed -i "/^# Colors$/,/^set \$red/{
         /^# Colors$/r $i3_theme_file
@@ -91,22 +98,18 @@ change_i3_theme() {
 }
 
 change_neovim_theme() {
-	readonly NVIM_OPTIONS="$HOME/dotfiles/.config/nvim/lua/config/options.lua"
+	readonly NVIM_OPTIONS="$CONFIG_DIR/nvim/lua/config/options.lua"
 	local theme="$1"
 
 	sed -i "s|vim.g.colorscheme = \".*\"|vim.g.colorscheme = \"${theme}\"|" "$NVIM_OPTIONS"
 }
 
 change_lualine_theme() {
-	readonly NVIM_LUALINE="$HOME/dotfiles/.config/nvim/lua/plugins/lualine.lua"
-	readonly LUALINE_THEMES_DIR="$HOME/dotfiles/.config/nvim/themes/lualine"
+	readonly NVIM_LUALINE="$CONFIG_DIR/nvim/lua/plugins/lualine.lua"
 	local theme="$1"
-	local theme_file="$LUALINE_THEMES_DIR/${theme}"
+	local theme_file="$THEMES_DIR/${theme}/lualine"
 
-	if [[ ! -f "$theme_file" ]]; then
-		echo "Error: theme file '$theme_file' not found" >&2
-		return 1
-	fi
+	validate_theme_file "$theme_file" || return 1
 
 	while IFS='=' read -r key value; do
 		sed -i "s|nvim_set_hl(0, \"${key}\", { fg = \"[^\"]*\" })|nvim_set_hl(0, \"${key}\", { fg = ${value} })|" "$NVIM_LUALINE"
@@ -114,22 +117,21 @@ change_lualine_theme() {
 }
 
 change_rofi_theme() {
-	readonly ROFI_CONFIG="$HOME/dotfiles/.config/rofi/config.rasi"
+	readonly ROFI_CONFIG="$CONFIG_DIR/rofi/config.rasi"
 	local theme="$1"
+	local theme_file="$THEMES_DIR/${theme}/rofi.rasi"
 
-	sed -i "s|@theme \"~/.config/rofi/themes/[^\"]*\.rasi\"|@theme \"~/.config/rofi/themes/${theme}.rasi\"|" "$ROFI_CONFIG"
+	validate_theme_file "$theme_file" || return 1
+
+	sed -i "s|@theme \".*rofi\.rasi\"|@theme \"${theme_file}\"|g" "$ROFI_CONFIG"
 }
 
 change_starship_theme() {
-	readonly STARSHIP_CONFIG="$HOME/dotfiles/.config/starship/starship.toml"
-	readonly STARSHIP_THEMES_DIR="$HOME/dotfiles/.config/starship/themes"
+	readonly STARSHIP_CONFIG="$CONFIG_DIR/starship/starship.toml"
 	local theme="$1"
-	local theme_file="$STARSHIP_THEMES_DIR/${theme}.toml"
+	local theme_file="$THEMES_DIR/${theme}/starship.toml"
 
-	if [[ ! -f "$theme_file" ]]; then
-		echo "Error: theme file '$theme_file' not found" >&2
-		return 1
-	fi
+	validate_theme_file "$theme_file" || return 1
 
 	local directory_style
 	directory_style=$(grep '^directory_style' "$theme_file" | cut -d'"' -f2)
@@ -179,15 +181,11 @@ change_starship_theme() {
 }
 
 change_tmux_theme() {
-	readonly TMUX_CONFIG="$HOME/dotfiles/.config/tmux/tmux.conf"
-	readonly TMUX_THEMES_DIR="$HOME/dotfiles/.config/tmux/themes"
+	readonly TMUX_CONFIG="$CONFIG_DIR/tmux/tmux.conf"
 	local theme="$1"
-	local theme_file="$TMUX_THEMES_DIR/${theme}.tmuxtheme"
+	local theme_file="$THEMES_DIR/${theme}/tmux"
 
-	if [[ ! -f "$theme_file" ]]; then
-		echo "Error: theme file '$theme_file' not found" >&2
-		return 1
-	fi
+	validate_theme_file "$theme_file" || return 1
 
 	local status_bg
 	status_bg=$(grep '^status_bg' "$theme_file" | cut -d'"' -f2)

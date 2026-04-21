@@ -1,7 +1,5 @@
 [general]
-import = [
-	"~/.config/alacritty/themes/tokyonight-night.toml"
-]
+import = ["/home/claudio/dotfiles/themes/tokyonight-night/alacritty.toml"]
 
 [window.padding]
 x = 2

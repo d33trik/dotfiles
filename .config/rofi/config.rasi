@@ -82,4 +82,4 @@ configuration {
 	}
 }
 
-@theme "~/.config/rofi/themes/tokyonight-night.rasi"
+@theme "/home/claudio/dotfiles/themes/tokyonight-night/rofi.rasi"
