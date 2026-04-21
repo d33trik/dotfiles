@@ -22,6 +22,7 @@ main() {
 	change_i3_theme "$theme"
 	change_neovim_theme "$theme"
 	change_lualine_theme "$theme"
+	change_rofi_theme "$theme"
 	change_starship_theme "$theme"
 	change_tmux_theme "$theme"
 }
@@ -110,6 +111,13 @@ change_lualine_theme() {
 	while IFS='=' read -r key value; do
 		sed -i "s|nvim_set_hl(0, \"${key}\", { fg = \"[^\"]*\" })|nvim_set_hl(0, \"${key}\", { fg = ${value} })|" "$NVIM_LUALINE"
 	done <"$theme_file"
+}
+
+change_rofi_theme() {
+	readonly ROFI_CONFIG="$HOME/dotfiles/.config/rofi/config.rasi"
+	local theme="$1"
+
+	sed -i "s|@theme \"~/.config/rofi/themes/[^\"]*\.rasi\"|@theme \"~/.config/rofi/themes/${theme}.rasi\"|" "$ROFI_CONFIG"
 }
 
 change_starship_theme() {
