@@ -1,6 +1,6 @@
 [general]
 import = [
-	"~/.config/alacritty/themes/tokyonight-moon.toml"
+	"~/.config/alacritty/themes/tokyonight-night.toml"
 ]
 
 [window.padding]

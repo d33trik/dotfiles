@@ -1,8 +1,8 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = function()
-    vim.api.nvim_set_hl(0, "pretty_path_filename", { fg = "#828bb8" })
-    vim.api.nvim_set_hl(0, "pretty_path_modified", { fg = "#828bb8" })
+    vim.api.nvim_set_hl(0, "pretty_path_filename", { fg = "#a9b1d6" })
+    vim.api.nvim_set_hl(0, "pretty_path_modified", { fg = "#a9b1d6" })
     return {
       options = {
         theme = vim.g.colorscheme,

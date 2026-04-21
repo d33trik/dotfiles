@@ -15,7 +15,7 @@ set -g fish_greeting
 set -g fish_key_bindings fish_vi_key_bindings
 
 # Set theme
-fish_config theme choose tokyonight-moon
+fish_config theme choose tokyonight-night
 
 # Go
 fish_add_path /usr/local/go/bin

@@ -5,7 +5,7 @@
 --]]
 
 -- Set colorscheme
-vim.g.colorscheme = "tokyonight-moon"
+vim.g.colorscheme = "tokyonight-night"
 
 -- Set spell check languages to English and Brazilian Portuguese
 vim.opt.spelllang = { "en", "pt" }
