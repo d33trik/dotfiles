@@ -5,7 +5,7 @@ yay -S --noconfirm --needed --provides=false \
 	i3-wm \
 	i3status \
 	i3lock \
-	dmenu \
+	rofi \
 	arandr \
 	dunst \
 	libnotify

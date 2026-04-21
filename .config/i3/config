@@ -36,8 +36,8 @@ bindsym $mod+Return exec alacritty
 # Close the currently focused window
 bindsym $mod+Shift+q kill
 
-# Launch dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run
+# Launch rofi
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Vim-style window focus navigation
 bindsym $mod+h focus left

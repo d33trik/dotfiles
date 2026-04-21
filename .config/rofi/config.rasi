@@ -1,0 +1,85 @@
+configuration {
+	/* --- General --- */
+	font:                    "SauceCodePro Nerd Font 12";
+	location:                0;
+	xoffset:                 0;
+	yoffset:                 0;
+	m:                       "-5";
+	dpi:                     -1;
+	pid:                     "/run/user/1000/rofi.pid";
+
+	/* --- Modes --- */
+	modes:                   "window,drun,run,ssh";
+	completer-mode:          "filebrowser";
+
+	/* --- Interface --- */
+	fixed-num-lines:         true;
+	show-icons:              false;
+	sidebar-mode:            true;
+	eh:                      1;
+	cycle:                   false;
+	hover-select:            false;
+	auto-select:             false;
+	click-to-exit:           true;
+	scroll-method:           0;
+	steal-focus:             false;
+	global-kb:               false;
+	imdkit:                  true;
+	xserver-i300-workaround: false;
+
+	/* --- Terminal --- */
+	terminal:                "alacritty";
+
+	/* --- SSH --- */
+	ssh-client:              "ssh";
+	ssh-command:             "{terminal} -e {ssh-client} {host} [-p {port}]";
+	parse-hosts:             false;
+	parse-known-hosts:       true;
+
+	/* --- RUN --- */
+	run-command:             "{cmd}";
+	run-list-command:        "";
+	run-shell-command:       "{terminal} -e {cmd}";
+
+	/* --- WINDOW --- */
+	window-command:          "wmctrl -i -R {window}";
+	window-match-fields:     "all";
+	window-format:           "{w}    {c}   {t}";
+	window-thumbnail:        false;
+
+	/* --- DRUN --- */
+	drun-match-fields:       "name,generic,exec,categories,keywords";
+	drun-show-actions:       false;
+	drun-display-format:     "{name}";
+	drun-url-launcher:       "xdg-open";
+	drun-use-desktop-cache:  false;
+	drun-reload-desktop-cache: false;
+
+	/* --- Search and Filtering --- */
+	matching:                "normal";
+	tokenize:                true;
+	case-sensitive:          false;
+	case-smart:              false;
+	sort:                    false;
+	sorting-method:          "normal";
+	normalize-match:         false;
+	refilter-timeout-limit:  300;
+
+	/* --- History --- */
+	disable-history:         true;
+	max-history-size:        25;
+
+	/* --- Timeout --- */
+	timeout {
+		action: "kb-cancel";
+		delay:  0;
+	}
+
+	/* --- Filebrowser --- */
+	filebrowser {
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+
+@theme "~/.config/rofi/themes/tokyonight-night.rasi"
