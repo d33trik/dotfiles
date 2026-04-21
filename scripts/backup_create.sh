@@ -9,6 +9,7 @@ dest="/run/media/$(whoami)/backup/backup.tar.gz"
 backup_files=(
 	".config/chromium"
 	".config/mozilla/firefox"
+	".local/share/applications"
 	".local/share/fonts/dank-mono"
 	".ssh"
 	"documents"
