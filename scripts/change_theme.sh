@@ -23,6 +23,7 @@ main() {
 	change_neovim_theme "$theme"
 	change_lualine_theme "$theme"
 	change_starship_theme "$theme"
+	change_tmux_theme "$theme"
 }
 
 change_alacritty_theme() {
@@ -167,6 +168,34 @@ change_starship_theme() {
 	sed -i '/vimcmd_replace_one_symbol/ s/(#[a-fA-F0-9]\{6\})/('"$character_vimcmd_replace_one"')/g' "$STARSHIP_CONFIG"
 	sed -i '/vimcmd_replace_symbol/ s/(#[a-fA-F0-9]\{6\})/('"$character_vimcmd_replace"')/g' "$STARSHIP_CONFIG"
 	sed -i '/vimcmd_symbol/ s/(#[a-fA-F0-9]\{6\})/('"$character_vimcmd"')/g' "$STARSHIP_CONFIG"
+}
+
+change_tmux_theme() {
+	readonly TMUX_CONFIG="$HOME/dotfiles/.config/tmux/tmux.conf"
+	readonly TMUX_THEMES_DIR="$HOME/dotfiles/.config/tmux/themes"
+	local theme="$1"
+	local theme_file="$TMUX_THEMES_DIR/${theme}.tmuxtheme"
+
+	if [[ ! -f "$theme_file" ]]; then
+		echo "Error: theme file '$theme_file' not found" >&2
+		return 1
+	fi
+
+	local status_bg
+	status_bg=$(grep '^status_bg' "$theme_file" | cut -d'"' -f2)
+
+	local status_fg
+	status_fg=$(grep '^status_fg' "$theme_file" | cut -d'"' -f2)
+
+	local active_fg
+	active_fg=$(grep '^active_fg' "$theme_file" | cut -d'"' -f2)
+
+	sed -i "/status-style/ s|bg='#[^']*'|bg='${status_bg}'|" "$TMUX_CONFIG"
+	sed -i "/status-style/ s|fg='#[^']*'|fg='${status_fg}'|" "$TMUX_CONFIG"
+	sed -i "/window-status-current-format/ s|fg=#[a-fA-F0-9]\{6\}|fg=${active_fg}|g" "$TMUX_CONFIG"
+	sed -i "/status-right/ s|fg=#[a-fA-F0-9]\{6\}|fg=${active_fg}|g" "$TMUX_CONFIG"
+
+	tmux source "$TMUX_CONFIG" 2>/dev/null || true
 }
 
 main "$@"
