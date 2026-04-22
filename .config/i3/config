@@ -7,6 +7,9 @@ font pango:SauceCodePro Nerd Font 10
 # Start dunst, a lightweight notification daemon
 exec --no-startup-id dunst
 
+# Set wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.wallpapers/*
+
 # Toggle notifications pause
 bindsym $mod+q exec dunstctl set-paused toggle
 

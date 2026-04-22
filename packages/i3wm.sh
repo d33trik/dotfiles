@@ -6,6 +6,7 @@ yay -S --noconfirm --needed --provides=false \
 	i3status \
 	i3lock \
 	rofi \
+	feh \
 	arandr \
 	dunst \
 	libnotify

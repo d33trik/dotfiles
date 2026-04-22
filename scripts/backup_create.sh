@@ -12,6 +12,7 @@ backup_files=(
 	".local/share/applications"
 	".local/share/fonts/dank-mono"
 	".ssh"
+	".wallpapers"
 	"documents"
 )
 
