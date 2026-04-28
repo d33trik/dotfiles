@@ -82,4 +82,4 @@ configuration {
 	}
 }
 
-@theme "/home/claudio/dotfiles/themes/tokyonight-night/rofi.rasi"
+@theme "/home/d33trik/dotfiles/themes/tokyonight-night/rofi.rasi"

@@ -1,5 +1,5 @@
 [general]
-import = ["/home/claudio/dotfiles/themes/tokyonight-night/alacritty.toml"]
+import = ["/home/d33trik/dotfiles/themes/tokyonight-night/alacritty.toml"]
 
 [window.padding]
 x = 2
