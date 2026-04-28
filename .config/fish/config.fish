@@ -19,7 +19,7 @@ fish_config theme choose fish
 
 # Go
 fish_add_path /usr/local/go/bin
-fish_add_path $HOME/go/bin
+fish_add_path $HOME/.local/go/bin
 
 # Npm
 fish_add_path $HOME/.npm-global/bin
