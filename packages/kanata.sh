@@ -14,9 +14,6 @@ EOF
 
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
-USER_HOME="$HOME"
-KANATA_BIN="$(command -v kanata)"
-
 sudo tee /etc/systemd/system/kanata.service >/dev/null <<EOF
 [Unit]
 Description=Kanata keyboard remapper
@@ -29,12 +26,16 @@ CPUSchedulingPriority=99
 IOSchedulingClass=realtime
 Nice=-20
 Type=simple
-ExecStart=${KANATA_BIN} --cfg ${USER_HOME}/.config/kanata/config.kbd --no-wait
+ExecStart=$(command -v kanata) --cfg ${HOME}/.config/kanata/config.kbd --no-wait
 Restart=on-failure
 RestartSec=3
 
 [Install]
 WantedBy=default.target
+EOF
+
+sudo tee /etc/sudoers.d/kanata >/dev/null <<EOF
+$USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart kanata
 EOF
 
 sudo systemctl daemon-reload
