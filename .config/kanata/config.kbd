@@ -3,6 +3,7 @@
 )
 
 (defsrc
+	esc
 	caps a s d f h j k l ;
 	lshift rshift
 )
@@ -34,11 +35,13 @@
 )
 
 (deflayer base
+	grave
 	esc @a @s @d @f h @j @k @l @;
 	@nav bspc
 )
 
 (deflayer nav
+	-
 	- - - - - @left @down @up @right -
 	- del
 )
