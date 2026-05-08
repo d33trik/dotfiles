@@ -1,0 +1,44 @@
+(defcfg
+	process-unmapped-keys yes
+)
+
+(defsrc
+	caps a s d f h j k l ;
+	lshift rshift
+)
+
+(defvar
+	tap-time 150
+	hold-time 200
+)
+
+(defalias
+	;; Home row mods
+	a (tap-hold $tap-time $hold-time a lmet)
+	s (tap-hold $tap-time $hold-time s lsft)
+	d (tap-hold $tap-time $hold-time d ralt)
+	f (tap-hold $tap-time $hold-time f lctl)
+	j (tap-hold $tap-time $hold-time j rctl)
+	k (tap-hold $tap-time $hold-time k lalt)
+	l (tap-hold $tap-time $hold-time l rsft)
+	; (tap-hold $tap-time $hold-time ; rmet)
+
+	;; Navigation layer while holding left shift
+	nav (layer-while-held nav)
+
+	;; Arrow aliases
+	left left
+	down down
+	up up
+	right right
+)
+
+(deflayer base
+	esc @a @s @d @f h @j @k @l @;
+	@nav bspc
+)
+
+(deflayer nav
+	- - - - - @left @down @up @right -
+	- del
+)

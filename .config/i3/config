@@ -10,6 +10,9 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY XAUTHO
 # Set desktop environment identifier for xdg-desktop-portal backend
 exec --no-startup-id systemctl --user set-environment XDG_CURRENT_DESKTOP=i3
 
+# Re-apply XKB layout so kanata uinput device gets it (kanata starts at boot as system service)
+exec_always --no-startup-id setxkbmap us -variant intl
+
 # Start dunst, a lightweight notification daemon
 exec --no-startup-id dunst
 
