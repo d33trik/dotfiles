@@ -17,15 +17,18 @@
 	;; Home row mods
 	a (tap-hold $tap-time $hold-time a lmet)
 	s (tap-hold $tap-time $hold-time s lsft)
-	d (tap-hold $tap-time $hold-time d ralt)
+	d (tap-hold $tap-time $hold-time d lalt)
 	f (tap-hold $tap-time $hold-time f lctl)
 	j (tap-hold $tap-time $hold-time j rctl)
-	k (tap-hold $tap-time $hold-time k lalt)
+	k (tap-hold $tap-time $hold-time k ralt)
 	l (tap-hold $tap-time $hold-time l rsft)
 	; (tap-hold $tap-time $hold-time ; rmet)
-
+	
 	;; Navigation layer while holding left shift
 	nav (layer-while-held nav)
+
+	;; Escape on tap, right alt on hold
+	esc_ralt (tap-hold $tap-time $hold-time esc ralt)
 
 	;; Arrow aliases
 	left left
@@ -36,7 +39,7 @@
 
 (deflayer base
 	grave
-	esc @a @s @d @f h @j @k @l @;
+	@esc_ralt @a @s @d @f h @j @k @l @;
 	@nav bspc
 )
 
