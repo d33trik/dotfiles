@@ -5,7 +5,7 @@ return {
       sources = {
         projects = {
           recent = false,
-          dev = { "~/projects", "~/work" },
+          dev = { "~/projects", "~/work/conecttec", "~/work/eztech", "~/work/simulation" },
           projects = {},
           patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", "go.mod" },
           format = function(item, picker)
