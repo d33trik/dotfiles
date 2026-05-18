@@ -15,6 +15,7 @@ post_install() {
 	cd "$DOTFILES_DIR"
 	git remote set-url origin ssh://git@codeberg.org/d33trik/dotfiles.git
 	bash scripts/install_packages.sh
+	bash scripts/clone_repositories.sh
 }
 
 main "$@"
