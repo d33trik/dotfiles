@@ -17,6 +17,9 @@ set -g fish_key_bindings fish_vi_key_bindings
 # Set theme
 fish_config theme choose fish
 
+# Libvirt
+set -Ux LIBVIRT_DEFAULT_URI qemu:///system
+
 # Go
 fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.local/go/bin
