@@ -2,13 +2,13 @@
 
 set -euo pipefail
 
-CODEBERG_USER="d33trik"
+GITHUB_USER="d33trik"
 PROJECTS_DIR="$HOME/projects"
 
 main() {
 	install_deps
 	create_projects_directory "$PROJECTS_DIR"
-	clone_repositories "$CODEBERG_USER" "$PROJECTS_DIR"
+	clone_repositories "$GITHUB_USER" "$PROJECTS_DIR"
 }
 
 install_deps() {
@@ -24,14 +24,14 @@ clone_repositories() {
 	local user="$1"
 	local base_dir="$2"
 
-	echo "Fetching repos from $user on Codeberg..."
+	echo "Fetching repos from $user on GitHub..."
 
 	local page=1
 	local repos=()
 
 	while true; do
 		local response
-		response=$(curl -s "https://codeberg.org/api/v1/users/$user/repos?limit=50&page=$page")
+		response=$(curl -s -H "Accept: application/vnd.github+json" "https://api.github.com/users/$user/repos?per_page=100&page=$page")
 
 		local length
 		length=$(echo "$response" | jq 'length')
