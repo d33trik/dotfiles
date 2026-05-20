@@ -5,9 +5,15 @@ return {
       sources = {
         projects = {
           recent = false,
-          dev = { "~/projects", "~/work/conecttec", "~/work/eztech", "~/work/simulation" },
+          dev = { "~/projects" },
           projects = {},
           patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", "go.mod" },
+          matcher = {
+            frecency = false,
+            sort_empty = true,
+            cwd_bonus = false,
+          },
+          sort = { fields = { "score:desc", "idx" } },
           format = function(item, picker)
             if not item.file then
               return {}
