@@ -1,6 +1,4 @@
-yay -S --noconfirm --needed --provides=false \
-	nodejs \
-	npm
+yay -S --noconfirm --needed --provides=false nodejs npm
 
 mkdir -p ~/.npm-global
 

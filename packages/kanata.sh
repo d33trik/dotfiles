@@ -39,5 +39,4 @@ $USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart kanata
 EOF
 
 sudo systemctl daemon-reload
-sudo systemctl enable kanata
-sudo systemctl start kanata
+sudo systemctl enable --now kanata

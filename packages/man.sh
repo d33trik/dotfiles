@@ -1,3 +1,1 @@
-yay -S --noconfirm --needed --provides=false \
-	man \
-	man-pages
+yay -S --noconfirm --needed --provides=false man man-pages

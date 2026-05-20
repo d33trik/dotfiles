@@ -1,8 +1,6 @@
-yay -S --noconfirm --needed --provides=false \
-	podman \
-	podman-compose
+yay -S --noconfirm --needed --provides=false podman podman-compose
 
-sudo systemctl enable podman-restart.service
+sudo systemctl enable --now podman-restart.service
 
 sudo rm -f /etc/containers/registries.conf.d/00-shortnames.conf
 
