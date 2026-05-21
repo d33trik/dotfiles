@@ -1,6 +1,6 @@
 yay -S --noconfirm --needed --provides=false kanata
 
-sudo groupdel uinput 2>/dev/null
+sudo groupdel uinput 2>/dev/null || true
 sudo groupadd --system uinput
 
 sudo usermod -aG input $USER
