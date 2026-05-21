@@ -8,6 +8,13 @@ set -euo pipefail
 main() {
 	local DOTFILES_DIR="$HOME/dotfiles"
 
+	echo "Plug in your backup USB drive before proceeding."
+	read -r -p "Ready? (y/N) " reply
+	case "${reply,,}" in
+		y | yes) ;;
+		*) exit 1 ;;
+	esac
+
 	post_install
 }
 
@@ -15,6 +22,7 @@ post_install() {
 	cd "$DOTFILES_DIR"
 	git remote set-url origin git@github.com:d33trik/dotfiles.git
 	bash scripts/install_packages.sh
+	bash scripts/backup_restore.sh
 	bash scripts/clone_repositories.sh
 }
 
