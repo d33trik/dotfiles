@@ -3,4 +3,5 @@ mod kanata
 mod mirrorlist
 mod packages
 mod repos
+mod theme
 mod workstation
