@@ -1,4 +1,5 @@
 mod backup
 mod kanata
 mod mirrorlist
+mod packages
 mod workstation
