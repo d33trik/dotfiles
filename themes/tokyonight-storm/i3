@@ -3,4 +3,5 @@ set $background_0 #1f2335
 set $background_1 #24283b
 set $foreground_0 #a9b1d6
 set $foreground_1 #c0caf5
+set $blue         #7aa2f7
 set $red          #f7768e
