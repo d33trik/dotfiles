@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false poppler
+sudo dnf install -y poppler

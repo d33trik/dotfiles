@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false git
+sudo dnf install -y git

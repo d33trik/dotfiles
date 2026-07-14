@@ -1,4 +1,4 @@
-yay -S --noconfirm --needed --provides=false tmux
+sudo dnf install -y tmux
 
 mkdir -p "$HOME/.tmux/plugins"
 

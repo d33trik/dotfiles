@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false just
+sudo dnf install -y just

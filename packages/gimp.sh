@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false gimp
+sudo dnf install -y gimp

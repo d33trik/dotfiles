@@ -1,6 +1,1 @@
-#!/bin/bash
-set -euo pipefail
-
-sudo systemctl restart kanata
-sleep 3
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+intl')]"

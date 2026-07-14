@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false zip
+sudo dnf install -y zip

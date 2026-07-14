@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false htop
+sudo dnf install -y htop

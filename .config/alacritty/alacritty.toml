@@ -1,9 +1,15 @@
 [general]
 import = ["/home/claudio/dotfiles/themes/tokyonight-night/alacritty.toml"]
 
-[window.padding]
-x = 2
-y = 0
+[window]
+title = "alacritty"
+dynamic_title = false
+decorations_theme_variant = "Dark"
+#decorations = "None"
+
+#[window.padding]
+#x = 2
+#y = 0
 
 [font]
 size = 14.0

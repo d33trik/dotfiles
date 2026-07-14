@@ -1,4 +1,4 @@
-yay -S --noconfirm --needed --provides=false podman podman-compose
+sudo dnf install -y podman podman-compose
 
 sudo systemctl enable --now podman-restart.service
 

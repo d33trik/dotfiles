@@ -1,4 +1,4 @@
-yay -S --noconfirm --needed --provides=false nodejs npm
+sudo dnf install -y nodejs
 
 mkdir -p ~/.npm-global
 

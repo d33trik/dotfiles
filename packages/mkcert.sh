@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false mkcert
+sudo dnf install -y mkcert

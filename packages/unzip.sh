@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false unzip
+sudo dnf install -y unzip

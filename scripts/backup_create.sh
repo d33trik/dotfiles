@@ -21,24 +21,10 @@ for file in "${backup_files[@]}"; do
 	echo " - $file"
 done
 
-gum spin \
-	--title="Mounting device..." \
-	--show-error="true" \
-	-- udiskie-mount --all
+echo "Creating backup at ${dest}..."
+tar -czf "${dest}" -C "${HOME}" "${backup_files[@]}"
 
-gum spin \
-	--title="Creating backup at ${dest}..." \
-	--show-error="true" \
-	-- tar -czf "${dest}" -C "${HOME}" "${backup_files[@]}"
-
-gum spin \
-	--title="Syncing cached writes to persistent storage" \
-	--show-error="true" \
-	-- sync
-
-gum spin \
-	--title="Unmounting device..." \
-	--show-error="true" \
-	-- udiskie-umount --all
+echo "Syncing cached writes to persistent storage..."
+sync
 
 echo "✓ Backup successfully created at ${dest}"

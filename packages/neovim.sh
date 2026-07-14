@@ -1,4 +1,4 @@
-yay -S --noconfirm --needed --provides=false \
+sudo dnf install -y \
 	neovim \
 	curl \
 	fd \

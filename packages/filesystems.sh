@@ -1,4 +1,1 @@
-yay -S --noconfirm --needed --provides=false \
-	dosfstools \
-	exfatprogs \
-	ntfs-3g
+sudo dnf install -y dosfstools exfatprogs ntfs-3g

@@ -20,12 +20,9 @@ main() {
 	theme=$(gum choose "${THEMES[@]}")
 
 	change_alacritty_theme "$theme"
-	change_dunst_theme "$theme"
 	change_fish_theme "$theme"
-	change_i3_theme "$theme"
 	change_neovim_theme "$theme"
 	change_lualine_theme "$theme"
-	change_rofi_theme "$theme"
 	change_starship_theme "$theme"
 	change_tmux_theme "$theme"
 }
@@ -49,21 +46,6 @@ change_alacritty_theme() {
 	sed -i "s|\".*alacritty\.toml|\"${theme_file}|g" "$ALACRITTY_CONFIG"
 }
 
-change_dunst_theme() {
-	readonly DUNST_CONFIG="$CONFIG_DIR/dunst/dunstrc"
-	local theme="$1"
-	local theme_file="$THEMES_DIR/${theme}/dunst"
-
-	validate_theme_file "$theme_file" || return 1
-
-	sed -i '/^\[urgency_/,/^$/d' "$DUNST_CONFIG"
-
-	cat "$theme_file" >>"$DUNST_CONFIG"
-
-	pkill dunst || true
-	dunst &
-}
-
 change_fish_theme() {
 	readonly FISH_CONFIG="$CONFIG_DIR/fish/config.fish"
 	local theme="$1"
@@ -72,29 +54,6 @@ change_fish_theme() {
 	validate_theme_file "$theme_file" || return 1
 
 	cp "$theme_file" "$CONFIG_DIR/fish/themes/fish.theme"
-}
-
-change_i3_theme() {
-	readonly I3_CONFIG="$CONFIG_DIR/i3/config"
-	readonly I3STATUS_CONFIG="$CONFIG_DIR/i3/i3status.conf"
-	local theme="$1"
-	local i3_theme_file="$THEMES_DIR/${theme}/i3"
-	local i3status_theme_file="$THEMES_DIR/${theme}/i3status"
-
-	validate_theme_file "$i3_theme_file" || return 1
-
-	validate_theme_file "$i3status_theme_file" || return 1
-
-	sed -i "/^# Colors$/,/^set \$red/{
-        /^# Colors$/r $i3_theme_file
-        d
-    }" "$I3_CONFIG"
-
-	sed -i "s/color_good=\"[^\"]*\"/$(grep 'color_good' "$i3status_theme_file")/" "$I3STATUS_CONFIG"
-	sed -i "s/color_degraded=\"[^\"]*\"/$(grep 'color_degraded' "$i3status_theme_file")/" "$I3STATUS_CONFIG"
-	sed -i "s/color_bad=\"[^\"]*\"/$(grep 'color_bad' "$i3status_theme_file")/" "$I3STATUS_CONFIG"
-
-	i3-msg restart >/dev/null
 }
 
 change_neovim_theme() {
@@ -114,16 +73,6 @@ change_lualine_theme() {
 	while IFS='=' read -r key value; do
 		sed -i "s|nvim_set_hl(0, \"${key}\", { fg = \"[^\"]*\" })|nvim_set_hl(0, \"${key}\", { fg = ${value} })|" "$NVIM_LUALINE"
 	done <"$theme_file"
-}
-
-change_rofi_theme() {
-	readonly ROFI_CONFIG="$CONFIG_DIR/rofi/config.rasi"
-	local theme="$1"
-	local theme_file="$THEMES_DIR/${theme}/rofi.rasi"
-
-	validate_theme_file "$theme_file" || return 1
-
-	sed -i "s|@theme \".*rofi\.rasi\"|@theme \"${theme_file}\"|g" "$ROFI_CONFIG"
 }
 
 change_starship_theme() {

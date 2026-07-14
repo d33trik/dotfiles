@@ -1,3 +1,3 @@
-yay -S --noconfirm --needed --provides=false fish
+sudo dnf install -y fish
 
 sudo chsh -s /usr/bin/fish $(whoami)

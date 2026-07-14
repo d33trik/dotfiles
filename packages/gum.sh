@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false gum
+sudo dnf install -y gum

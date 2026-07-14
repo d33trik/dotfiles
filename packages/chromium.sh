@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false chromium
+sudo dnf install -y chromium

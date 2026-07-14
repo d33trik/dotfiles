@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false flameshot
+sudo dnf install -y flameshot

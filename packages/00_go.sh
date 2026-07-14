@@ -1,3 +1,3 @@
-yay -S --noconfirm --needed --provides=false go
+sudo dnf install -y golang
 
 go env -w GOPATH=$HOME/.local/go

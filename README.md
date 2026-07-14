@@ -4,7 +4,7 @@ This repository contains my personal configuration files for various application
 
 ## Installation
 
-The installation process is automated using a script designed for Arch-based distributions.
+The installation process is automated using a script designed for Fedora.
 
 **Warning:** The installation script will install packages and modify your system configuration.
 
@@ -14,13 +14,13 @@ The installation process is automated using a script designed for Arch-based dis
 git clone https://github.com/d33trik/dotfiles.git ~/dotfiles
 ```
 
-1. **Navigate to the repository directory:**
+2. **Navigate to the repository directory:**
 
 ```bash
 cd ~/dotfiles
 ```
 
-1. **Run the installation script:**
+3. **Run the installation script:**
 
 ```bash
 bash scripts/install_packages.sh
@@ -28,7 +28,5 @@ bash scripts/install_packages.sh
 
 The script will:
 
-- Synchronize `pacman` package databases.
-- Install `yay` if it's not already installed.
 - Execute all the installation scripts located in the `packages/` directory.
 - Apply the dotfiles using `stow`.

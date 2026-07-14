@@ -8,25 +8,8 @@ set -euo pipefail
 main() {
 	local DOTFILES_DIR="$HOME/dotfiles"
 
-	synchronize_package_databases
-	install_yay
 	install_packages
 	apply_dotfiles
-}
-
-synchronize_package_databases() {
-	sudo pacman -Sy
-}
-
-install_yay() {
-	if ! command -v yay &>/dev/null; then
-		sudo pacman -S --noconfirm --needed git base-devel
-		rm -rf /tmp/yay
-		git clone https://aur.archlinux.org/yay.git /tmp/yay
-		cd /tmp/yay
-		makepkg --noconfirm -si
-		sudo pacman -Rs --noconfirm go
-	fi
 }
 
 install_packages() {

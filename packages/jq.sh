@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false jq
+sudo dnf install -y jq

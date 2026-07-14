@@ -1,23 +1,31 @@
-yay -S --noconfirm --needed --provides=false kanata
+if ! command -v kanata &>/dev/null; then
+  cargo install --locked kanata
 
-sudo groupdel uinput 2>/dev/null || true
-sudo groupadd --system uinput
+  sudo install -Dm755 "$HOME/.cargo/bin/kanata" /usr/local/bin/kanata
 
-sudo usermod -aG input $USER
-sudo usermod -aG uinput $USER
+  sudo groupadd --system uinput 2>/dev/null || true
 
-sudo modprobe uinput
+  sudo usermod -aG input "$USER"
+  sudo usermod -aG uinput "$USER"
 
-sudo tee /etc/udev/rules.d/99-input.rules >/dev/null <<EOF
+  sudo modprobe uinput
+
+  sudo tee /etc/modules-load.d/uinput.conf >/dev/null <<EOF
+uinput
+EOF
+
+  sudo tee /etc/udev/rules.d/99-input.rules >/dev/null <<'EOF'
 KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
 EOF
 
-sudo udevadm control --reload-rules && sudo udevadm trigger
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
 
-sudo tee /etc/systemd/system/kanata.service >/dev/null <<EOF
+  sudo tee /etc/systemd/system/kanata.service >/dev/null <<EOF
 [Unit]
 Description=Kanata keyboard remapper
 Documentation=https://github.com/jtroo/kanata
+After=systemd-udevd.service
 
 [Service]
 Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
@@ -26,17 +34,18 @@ CPUSchedulingPriority=99
 IOSchedulingClass=realtime
 Nice=-20
 Type=simple
-ExecStart=$(command -v kanata) --cfg ${HOME}/.config/kanata/config.kbd --no-wait
+ExecStart=/usr/local/bin/kanata --cfg $HOME/.config/kanata/config.kbd --no-wait
 Restart=on-failure
 RestartSec=3
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
 EOF
 
-sudo tee /etc/sudoers.d/kanata >/dev/null <<EOF
+  sudo tee /etc/sudoers.d/kanata >/dev/null <<EOF
 $USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart kanata
 EOF
 
-sudo systemctl daemon-reload
-sudo systemctl enable --now kanata
+  sudo systemctl daemon-reload
+  sudo systemctl enable --now kanata
+fi

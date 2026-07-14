@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false stow
+sudo dnf install -y stow

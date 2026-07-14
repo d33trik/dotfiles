@@ -1,1 +1,1 @@
-yay -S --noconfirm --needed --provides=false alacritty
+sudo dnf install -y alacritty
