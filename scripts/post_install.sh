@@ -23,6 +23,7 @@ post_install() {
 	git remote set-url origin git@github.com:d33trik/dotfiles.git
 	bash scripts/packages_install.sh
 	bash scripts/backup_restore.sh
+	bash scripts/home_dirs_setup.sh
 	bash scripts/repos_clone.sh
 }
 
