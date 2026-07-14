@@ -20,6 +20,9 @@ fish_config theme choose fish
 # Libvirt
 set -Ux LIBVIRT_DEFAULT_URI qemu:///system
 
+# Cargo
+fish_add_path $HOME/.cargo/bin
+
 # Go
 fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.local/go/bin
