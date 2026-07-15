@@ -22,9 +22,10 @@ post_install() {
 	cd "$DOTFILES_DIR"
 	git remote set-url origin git@github.com:d33trik/dotfiles.git
 	bash scripts/system_setup.sh
+	bash scripts/home_dirs_setup.sh
+	bash scripts/gnome_settings.sh
 	bash scripts/packages_install.sh
 	bash scripts/backup_restore.sh
-	bash scripts/home_dirs_setup.sh
 	bash scripts/repos_clone.sh
 }
 
