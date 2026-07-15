@@ -41,6 +41,7 @@ set_appearance() {
 	local wallpaper="file://$HOME/pictures/wallpapers/3uq3R57dxqw8mF4.jpg"
 	gsettings set org.gnome.desktop.background picture-uri "$wallpaper"
 	gsettings set org.gnome.desktop.background picture-uri-dark "$wallpaper"
+	gsettings set org.gnome.desktop.interface cursor-theme 'BreezeX-RosePine-Linux'
 	echo "Appearance settings configured."
 }
 
