@@ -7,8 +7,7 @@ set -euo pipefail
 
 dest="/run/media/$(whoami)/backup/backup.tar.gz"
 backup_files=(
-	".config/chromium"
-	".config/mozilla/firefox"
+	".backup"
 	".local/share/fonts/dank-mono"
 	".local/share/icons/BreezeX-RosePineDawn-Linux"
 	".local/share/icons/BreezeX-RosePine-Linux"
