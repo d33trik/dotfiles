@@ -77,11 +77,15 @@ set_shortcuts() {
 }
 
 set_custom_shortcuts() {
-	local path="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-	gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['${path}']"
-	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${path}" name 'Alacritty'
-	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${path}" command 'alacritty'
-	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${path}" binding '<Super>Return'
+	local alacritty="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+	local flameshot="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+	gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['${alacritty}', '${flameshot}']"
+	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${alacritty}" name 'Alacritty'
+	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${alacritty}" command 'alacritty'
+	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${alacritty}" binding '<Super>Return'
+	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${flameshot}" name 'Flameshot'
+	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${flameshot}" command 'flameshot gui'
+	gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${flameshot}" binding '<Super><Shift>s'
 	echo "Custom shortcuts configured."
 }
 
