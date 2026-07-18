@@ -27,6 +27,7 @@ set_power() {
 
 set_multitasking() {
 	gsettings set org.gnome.desktop.interface enable-hot-corners true
+	gsettings set org.gnome.mutter overlay-key ''
 	gsettings set org.gnome.mutter edge-tiling false
 	gsettings set org.gnome.mutter dynamic-workspaces false
 	gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
