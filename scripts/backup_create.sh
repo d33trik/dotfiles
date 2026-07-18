@@ -12,7 +12,14 @@ backup_files=(
 	".local/share/icons/BreezeX-RosePineDawn-Linux"
 	".local/share/icons/BreezeX-RosePine-Linux"
 	".ssh"
+	"desktop"
 	"documents"
+	"downloads"
+	"music"
+	"pictures"
+	"public"
+	"templates"
+	"videos"
 )
 
 echo "Files to backup:"
