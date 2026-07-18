@@ -13,7 +13,7 @@ main() {
 
 install_deps() {
 	echo "Installing dependencies..."
-	sudo pacman -S --noconfirm --needed git curl jq >/dev/null 2>&1 || echo "Failed to install dependencies"
+	sudo dnf install -y git curl jq >/dev/null 2>&1 || echo "Failed to install dependencies"
 }
 
 create_projects_directory() {
