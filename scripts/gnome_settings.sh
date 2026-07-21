@@ -13,14 +13,13 @@ set_keyboard() {
 }
 
 set_power() {
-	gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'suspend'
+	gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
 	gsettings set org.gnome.desktop.interface show-battery-percentage false
 	gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery true
 	gsettings set org.gnome.desktop.session idle-delay 300
 	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
 	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
-	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
-	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
+	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
 	sudo tuned-adm profile throughput-performance
 	echo "Power settings configured."
 }
@@ -39,9 +38,6 @@ set_multitasking() {
 set_appearance() {
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	gsettings set org.gnome.desktop.interface accent-color 'blue'
-	local wallpaper="file://$HOME/pictures/wallpapers/3uq3R57dxqw8mF4.jpg"
-	gsettings set org.gnome.desktop.background picture-uri "$wallpaper"
-	gsettings set org.gnome.desktop.background picture-uri-dark "$wallpaper"
 	gsettings set org.gnome.desktop.interface cursor-theme 'BreezeX-RosePine-Linux'
 	echo "Appearance settings configured."
 }
