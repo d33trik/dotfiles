@@ -1,1 +1,1 @@
-sudo dnf install -y gnome-extensions
+sudo dnf install -y gnome-extensions-app
