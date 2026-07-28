@@ -50,6 +50,11 @@ set_search() {
 	echo "Search settings configured."
 }
 
+set_notifications() {
+	gsettings set org.gnome.desktop.notifications show-in-lock-screen false
+	echo "Notifications settings configured."
+}
+
 set_mouse() {
 	gsettings set org.gnome.desktop.peripherals.mouse left-handed false
 	gsettings set org.gnome.desktop.peripherals.mouse speed 0.7
@@ -92,6 +97,7 @@ main() {
 	set_multitasking
 	set_appearance
 	set_search
+	set_notifications
 	set_mouse
 	set_shortcuts
 	set_custom_shortcuts
