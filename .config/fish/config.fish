@@ -17,9 +17,6 @@ set -g fish_key_bindings fish_vi_key_bindings
 # Set theme
 fish_config theme choose fish
 
-# Libvirt
-set -Ux LIBVIRT_DEFAULT_URI qemu:///system
-
 # Cargo
 fish_add_path $HOME/.cargo/bin
 
@@ -27,14 +24,17 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.local/go/bin
 
+# Libvirt
+set -Ux LIBVIRT_DEFAULT_URI qemu:///system
+
 # Npm
 fish_add_path $HOME/.npm-global/bin
 
-# Podman
-set -Ux PODMAN_COMPOSE_WARNING_LOGS false
-
 # OpenCode
 fish_add_path $HOME/.opencode/bin
+
+# Podman
+set -Ux PODMAN_COMPOSE_WARNING_LOGS false
 
 # Tmux
 if status is-interactive
