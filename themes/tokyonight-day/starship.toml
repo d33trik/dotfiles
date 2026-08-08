@@ -1,3 +1,4 @@
+hostname_style = "#587539"
 directory_style = "#2e7de9"
 directory_read_only_style = "#f52a65"
 git_branch_style = "#6172b0"

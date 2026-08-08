@@ -1,4 +1,5 @@
 format = """
+$hostname\
 $directory\
 $git_branch\
 $git_state\
@@ -6,6 +7,11 @@ $git_status\
 $line_break\
 $character
 """
+
+[hostname]
+ssh_only = false
+format = '[$hostname]($style) '
+style = '#9ece6a'
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '

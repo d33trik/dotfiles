@@ -31,8 +31,8 @@ validate_theme_file() {
 	local theme_file="$1"
 
 	if [[ ! -f "$theme_file" ]]; then
-			echo "Error: theme file '$theme_file' not found" >&2
-			return 1
+		echo "Error: theme file '$theme_file' not found" >&2
+		return 1
 	fi
 }
 
@@ -82,6 +82,9 @@ change_starship_theme() {
 
 	validate_theme_file "$theme_file" || return 1
 
+	local hostname_style
+	hostname_style=$(grep '^hostname_style' "$theme_file" | cut -d'"' -f2)
+
 	local directory_style
 	directory_style=$(grep '^directory_style' "$theme_file" | cut -d'"' -f2)
 
@@ -115,6 +118,7 @@ change_starship_theme() {
 	local character_vimcmd_replace_one
 	character_vimcmd_replace_one=$(grep '^character_vimcmd_replace_one' "$theme_file" | head -1 | cut -d'"' -f2)
 
+	sed -i "/^\[hostname\]/,/^\[/ s|^style = '.*'|style = '${hostname_style}'|" "$STARSHIP_CONFIG"
 	sed -i "/^\[directory\]/,/^\[/ s|^style = '.*'|style = '${directory_style}'|" "$STARSHIP_CONFIG"
 	sed -i "/^\[directory\]/,/^\[/ s|^read_only_style = '.*'|read_only_style = '${directory_read_only_style}'|" "$STARSHIP_CONFIG"
 	sed -i "/^\[git_branch\]/,/^\[/ s|^style = '.*'|style = '${git_branch_style}'|" "$STARSHIP_CONFIG"
