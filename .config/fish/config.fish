@@ -36,12 +36,6 @@ fish_add_path $HOME/.opencode/bin
 # Podman
 set -Ux PODMAN_COMPOSE_WARNING_LOGS false
 
-# Tmux
-if status is-interactive
-    and not set -q TMUX
-    tmux new-session -A -s main
-end
-
 # Starship
 set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 function starship_transient_prompt_func
