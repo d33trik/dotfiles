@@ -10,7 +10,7 @@ $character
 
 [hostname]
 ssh_only = false
-format = '[$hostname]($style) '
+format = '[$hostname]($style) on '
 style = '#9ece6a'
 
 [directory]
