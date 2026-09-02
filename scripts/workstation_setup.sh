@@ -6,30 +6,34 @@
 set -euo pipefail
 
 main() {
-	local DOTFILES_DIR="$HOME/dotfiles"
-
-	install_toolbox
+	install_distrobox
+	setup_dir
 	create_container
 	install_packages
 }
 
-install_toolbox() {
-	sudo dnf install -y toolbox
+install_distrobox() {
+	sudo dnf install -y distrobox
+}
+
+setup_dir() {
+	mkdir -p "$HOME/workstation"
+	git clone https://github.com/claudiodietrich/dotfiles.git "$HOME/workstation/dotfiles"
 }
 
 create_container() {
-	toolbox create workstation
-	toolbox run --container workstation sudo hostname workstation
+	distrobox create \
+		--yes \
+		--name workstation \
+		--hostname workstation \
+		--home "$HOME/workstation" \
+		--image fedora:latest
 }
 
 install_packages() {
-	local packages_dir="$DOTFILES_DIR/packages/workstation"
-
-	for package in "$packages_dir"/*.sh; do
-		if [ -f "$package" ]; then
-			toolbox run --container workstation bash "$package"
-		fi
-	done
+	distrobox-enter \
+		--name workstation \
+		-- bash "$HOME/workstation/dotfiles/scripts/post_install.sh"
 }
 
 main "$@"

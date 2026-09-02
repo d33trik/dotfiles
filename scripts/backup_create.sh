@@ -7,7 +7,6 @@ set -euo pipefail
 
 dest="/run/media/$(whoami)/backup/backup.tar.gz"
 backup_files=(
-	".claude"
 	".config/mozilla/firefox/Restore Firefox"
 	".local/share/fonts/dank-mono"
 	".local/share/icons/BreezeX-RosePineDawn-Linux"
@@ -21,6 +20,8 @@ backup_files=(
 	"public"
 	"templates"
 	"videos"
+	"workstation/.claude"
+	"workstation/.ssh"
 )
 
 echo "Files to backup:"

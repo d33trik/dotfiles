@@ -1,7 +1,6 @@
 sudo dnf install -y podman podman-compose
 
 sudo systemctl enable --now podman-restart.service
-systemctl --user enable --now podman.socket
 
 sudo rm -f /etc/containers/registries.conf.d/00-shortnames.conf
 
