@@ -16,10 +16,11 @@ set_power() {
 	gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
 	gsettings set org.gnome.desktop.interface show-battery-percentage false
 	gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery true
-	gsettings set org.gnome.desktop.session idle-delay 300
+	gsettings set org.gnome.desktop.session idle-delay 900
 	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
 	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
-	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
+	gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 1800
 	sudo tuned-adm profile throughput-performance
 	echo "Power settings configured."
 }
