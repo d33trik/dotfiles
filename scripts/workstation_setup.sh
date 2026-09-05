@@ -7,7 +7,6 @@ set -euo pipefail
 
 main() {
 	install_distrobox
-	setup_dir
 	create_container
 	install_packages
 }
@@ -16,24 +15,19 @@ install_distrobox() {
 	sudo dnf install -y distrobox
 }
 
-setup_dir() {
-	mkdir -p "$HOME/workstation"
-	git clone https://github.com/claudiodietrich/dotfiles.git "$HOME/workstation/dotfiles"
-}
-
 create_container() {
 	distrobox create \
 		--yes \
 		--name workstation \
 		--hostname workstation \
-		--home "$HOME/workstation" \
+		--home "/mnt/workstation/fedora" \
 		--image fedora:latest
 }
 
 install_packages() {
 	distrobox-enter \
 		--name workstation \
-		-- bash "$HOME/workstation/dotfiles/scripts/post_install.sh"
+		-- bash "/mnt/workstation/fedora/dotfiles/scripts/post_install.sh"
 }
 
 main "$@"

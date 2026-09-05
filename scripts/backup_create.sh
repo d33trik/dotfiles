@@ -20,8 +20,6 @@ backup_files=(
 	"public"
 	"templates"
 	"videos"
-	"workstation/.claude"
-	"workstation/.ssh"
 )
 
 echo "Files to backup:"
